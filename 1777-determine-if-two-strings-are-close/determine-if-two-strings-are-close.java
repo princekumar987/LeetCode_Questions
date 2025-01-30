@@ -50,7 +50,6 @@ class Solution {
         // System.out.println(list1);
         // System.out.println(list2);
 
-        if(list1.get(0)==826)return true;
 
         if(list1.equals(list2))return true;
 
