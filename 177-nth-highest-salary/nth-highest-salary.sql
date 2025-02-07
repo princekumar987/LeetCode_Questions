@@ -7,7 +7,7 @@ set N=N-1;
        select Distinct salary 
        from Employee
        order by salary DESC
-       limit 1 offset N
+       limit N,1
 
 
       
