@@ -1,8 +1,8 @@
 class ProductOfNumbers {
-
+    
     ArrayList<Integer>list=new ArrayList<>();
     public ProductOfNumbers() {
-        
+        list.clear();
     }
     
     public void add(int num) {
