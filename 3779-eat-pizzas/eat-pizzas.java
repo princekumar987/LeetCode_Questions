@@ -11,7 +11,6 @@ class Solution {
         int second=total-first;
         int count=0;
         int ind=0;
-        System.out.println(first+" "+second);
 
         for(int i=n-1;i>=0;i--){
              ans=ans+pizzas[i];
