@@ -21,7 +21,7 @@ class Solution {
         long ans=0;
 
         for(int i=arr.length-1;i>=0;i--){
-            System.out.print(arr[i][0]+" ");
+            //System.out.print(arr[i][0]+" ");
             if(limits[arr[i][1]]!=0 && count<k){
                  ans=ans+arr[i][0];
                  count++;
