@@ -1,21 +1,22 @@
 class Solution {
     public String largestGoodInteger(String nums) {
        
-       List<String>list=new ArrayList<>();
+       int max=-1;
        for(int i=0;i<nums.length()-2;i++){
           
           if(nums.charAt(i)==nums.charAt(i+1) && nums.charAt(i)==nums.charAt(i+2)){
-               list.add(""+nums.charAt(i)+nums.charAt(i+1)+nums.charAt(i+2));
+               int x=Integer.parseInt(""+nums.charAt(i)+nums.charAt(i+1)+nums.charAt(i+2));
+               max=Math.max(max,x);
           }
        }
 
-       Collections.sort(list);
+       if(max!=-1){
+           if(max==0)return "000";
+           else return String.valueOf(max);
+       }
+       else return "";
 
-       if(list.size()!=0){
-          return list.get(list.size()-1);
-       }
-       else{
-          return "";
-       }
+
+
     }
 }
