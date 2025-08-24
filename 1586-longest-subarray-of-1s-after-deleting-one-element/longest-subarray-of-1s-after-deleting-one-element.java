@@ -1,34 +1,39 @@
 class Solution {
     public int longestSubarray(int[] nums) {
         
-        HashMap<Integer,Integer>mp=new HashMap<>();
-        int j=0;
-        int n=nums.length;
-        int ans=0;
+        ArrayList<Integer>list=new ArrayList<>();
+        int count=0;
 
-        for(int i=0;i<n;i++){
-            int x=nums[i];
-            mp.put(x,mp.getOrDefault(x,0)+1);
+        for(int i=0;i<nums.length;i++){
 
-            if(mp.containsKey(0)){
-                int a=mp.get(0);
-                if(a==1){
-                    ans=Math.max(ans,i-j+1);
-                }
-                else{
-                    mp.put(nums[j],mp.get(nums[j])-1);
-                    if(mp.get(nums[j])==0){
-                        mp.remove(nums[j]);
-                    }
-                    j++;
-                }
+            if(nums[i]!=0){
+                  count++;
             }
             else{
-                ans=Math.max(ans,i-j+1);
+                list.add(count);
+                list.add(0);
+                count=0;
             }
         }
 
-        return ans-1;
+        list.add(count);
 
+        int ans=0;
+
+        for(int i=0;i<list.size()-2;i++){
+             int sum=list.get(i)+list.get(i+2);
+             ans=Math.max(ans,sum);
+        }
+
+        if(list.size()==2){
+            ans=Math.max(ans,list.get(0)+list.get(1));
+        }
+        if(list.size()==1){
+            ans=Math.max(ans,list.get(0)-1);
+        }
+
+        //System.out.println(list);
+
+        return ans;
     }
 }
