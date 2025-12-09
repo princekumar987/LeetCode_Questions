@@ -2,7 +2,7 @@ class Solution {
     public int specialTriplets(int[] nums) {
 
        Map<Integer,Integer>right=new HashMap<>();
-       System.out.println(nums.length);
+       //System.out.println(nums.length);
 
        for(Integer e:nums){
           right.put(e,right.getOrDefault(e,0)+1);
