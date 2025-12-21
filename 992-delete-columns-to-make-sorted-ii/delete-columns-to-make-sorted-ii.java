@@ -25,17 +25,13 @@ class Solution {
                     }
 
             }
-            
+
             if(!p)ans++;
             else{
                 for(int j=0;j<h.length;j++){
                     if(h[j])b[j]=h[j];
                 }
             }
-        }
-
-        for(int i=0;i<b.length;i++){
-            System.out.print(b[i]+" ");
         }
 
         return ans;
