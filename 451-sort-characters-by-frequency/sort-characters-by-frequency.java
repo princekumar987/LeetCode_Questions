@@ -7,28 +7,20 @@ class Solution {
            char ch=s.charAt(i); 
            mp.put(ch,mp.getOrDefault(ch,0)+1);
        }
-
-       int [][]ans=new int[mp.size()][2];
        
-       int j=0;
-       for(Character ch:mp.keySet()){
-            ans[j][0]=(int)ch;
-            ans[j][1]=mp.get(ch);
-            j++;
-       }
-
-       Arrays.sort(ans,Comparator.comparing(o->o[1]));
+       PriorityQueue<Character>pq=new PriorityQueue<>((a,b)->mp.get(b)-mp.get(a));
+       pq.addAll(mp.keySet());
        StringBuilder sb=new StringBuilder("");
 
-       for(int i=ans.length-1;i>=0;i--){
-              char ch=(char)ans[i][0];
-              for(j=0;j<ans[i][1];j++){
-                  sb.append(ch);
-              }
-       }
-
-       return sb.toString();
-
+       while(pq.size()>0){
+           char c=pq.remove();
+           int as=mp.get(c);
+           while(as-->0){
+              sb.append(c);
+           }
+       
+       }  
+       return sb.toString(); 
        
     }
 }
