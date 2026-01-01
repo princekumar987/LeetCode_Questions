@@ -8,7 +8,16 @@ class Solution {
            mp.put(ch,mp.getOrDefault(ch,0)+1);
        }
        
-       PriorityQueue<Character>pq=new PriorityQueue<>((a,b)->mp.get(b)-mp.get(a));
+       PriorityQueue<Character>pq=new PriorityQueue<>(
+          (a,b)->
+             { 
+                if(mp.get(a)!=mp.get(b)){
+                    return mp.get(b)-mp.get(a);
+                 } 
+                 else return  a.compareTo(b);
+            });
+
+            
        pq.addAll(mp.keySet());
        StringBuilder sb=new StringBuilder("");
 
