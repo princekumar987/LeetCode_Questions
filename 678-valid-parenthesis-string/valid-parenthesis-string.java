@@ -6,24 +6,27 @@ class Solution {
 
           for(int i=0;i<s.length();i++){
                char ch=s.charAt(i);
+
                if(ch=='('){
-                   min++;
-                   max++;
+                  min++;
+                  max++;
                }
                else if(ch==')'){
-                   min--;
-                   max--;
+                  min--;
+                  max--;
                }
                else{
-                   min--;
-                   max++;
+                  min--;
+                  max++;
                }
+
                if(min<0)min=0;
                if(max<0)return false;
+            
           }
 
           if(min!=0)return false;
-
+         
           return true;
     }
 }
