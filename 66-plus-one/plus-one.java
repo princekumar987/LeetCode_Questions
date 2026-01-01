@@ -17,12 +17,11 @@ class Solution {
                return ans;
            }
            else{
-               int []ans=new int[n];
-               for(int i=0;i<idx;i++){
-                  ans[i]=digits[i];
+               for(int i=n-1;i>idx;i--){
+                  digits[i]=0;
                }
-               ans[idx]=digits[idx]+1;
-               return ans;
+               digits[idx]=digits[idx]+1;
+               return digits;
            }
     }
 }
