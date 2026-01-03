@@ -9,26 +9,25 @@
  * }
  */
 class Solution {
+
+
+    static ListNode reverse(ListNode head,ListNode prev){
+
+        if(head==null)return prev;
+
+        ListNode temp=head;
+        ListNode front=head.next;
+        temp.next=prev;
+        prev=temp;
+        temp=front;
+
+        return reverse(temp,prev);
+
+    }
     public ListNode reverseList(ListNode head) {
 
-        if(head==null)return null;
-         
-         ListNode temp=head;
-         List<Integer>list=new ArrayList<>();
+         return reverse(head, null);
+        
 
-         while(temp!=null){
-               list.add(temp.val);
-               temp=temp.next;
-         }
-
-         head=new ListNode(list.get(list.size()-1));
-         temp=head;
-         for(int i=list.size()-2;i>=0;i--){
-            ListNode p=new ListNode(list.get(i));
-            temp.next=p;
-            temp=temp.next; 
-         }
-
-         return head;
     }
 }
