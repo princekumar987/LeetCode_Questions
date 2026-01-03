@@ -17,19 +17,14 @@ class Solution {
         ListNode even=head.next;
         ListNode e=even;
 
-        while(odd.next!=null && even.next!=null){
+        while(even!=null && even.next!=null){
               
-              if(odd.next.next!=null){
                  odd.next=odd.next.next;
-                 odd=odd.next;
-              }
-              if(even.next.next!=null){
                  even.next=even.next.next;
+                 odd=odd.next;
                  even=even.next;
-              }
-
+ 
         }
-        even.next=null;
         odd.next=e;
         
 
