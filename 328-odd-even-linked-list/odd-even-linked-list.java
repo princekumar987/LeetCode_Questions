@@ -11,35 +11,29 @@
 class Solution {
     public ListNode oddEvenList(ListNode head) {
          
-         if(head==null || head.next==null)return head;
-         List<Integer>list=new ArrayList<>();
+        if(head==null || head.next==null)return head;
 
-         ListNode temp=head;
+        ListNode odd=head;
+        ListNode even=head.next;
+        ListNode e=even;
 
-         while(temp!=null){
-                list.add(temp.val);
-                if(temp.next==null || temp.next.next==null)break;
-                temp=temp.next.next;
-         }
+        while(odd.next!=null && even.next!=null){
+              
+              if(odd.next.next!=null){
+                 odd.next=odd.next.next;
+                 odd=odd.next;
+              }
+              if(even.next.next!=null){
+                 even.next=even.next.next;
+                 even=even.next;
+              }
 
-         temp=head.next;
+        }
+        even.next=null;
+        odd.next=e;
+        
 
-         while(temp!=null){
-              list.add(temp.val);
-              if(temp.next==null || temp.next.next==null)break;
-              temp=temp.next.next;
-         }
-
-         temp=head;
-         int i=0;
-
-         while(temp!=null){
-            temp.val=list.get(i++);
-            temp=temp.next;
-         }
-
-
-         return head;
+        return head;
 
     }
 }
