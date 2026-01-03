@@ -20,10 +20,10 @@ class Solution {
                 slow=slow.next;
                 fast=fast.next.next;
           }
-
+          
           ListNode prev=slow;
-          ListNode c=slow.next;
           ListNode temp=slow.next;
+          slow.next=null;
 
           while(temp!=null){
                ListNode front=temp.next;
@@ -34,7 +34,7 @@ class Solution {
 
           temp=head;
 
-          while(temp!=c){
+          while(temp!=null){
               if(temp.val!=prev.val)return false;
               temp=temp.next;
               prev=prev.next;
