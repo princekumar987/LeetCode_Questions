@@ -17,7 +17,7 @@ class Solution {
 
                if(sum>=k){
                    ans=Math.min(ans,(i-j+1));
-                   System.out.println(ans);
+                   //System.out.println(ans);
                    while(j<=i){
                        int y=nums[j];
                        if(mp.containsKey(y) && mp.get(y)==1){
