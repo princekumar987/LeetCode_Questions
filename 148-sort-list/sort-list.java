@@ -67,11 +67,10 @@ class Solution {
         ListNode middle=findMiddle(head);
         ListNode right=middle.next;
         middle.next=null;
-        ListNode left=head;
 
-        left=sortList(left);
+        head=sortList(head);
         right=sortList(right);
 
-        return mergeSortedList(left,right);   
+        return mergeSortedList(head,right);   
     }
 }
