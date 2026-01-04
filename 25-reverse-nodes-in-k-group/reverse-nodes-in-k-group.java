@@ -24,7 +24,6 @@ class Solution {
 
             int l=i;
             int m=i+k-1;
-             if(m-l+1==k){
               while(l<m){
                    int p=list.get(l);
                    list.set(l,list.get(m));
@@ -32,7 +31,6 @@ class Solution {
                    l++;
                    m--;
               }
-             }
         }
 
         temp=head;
