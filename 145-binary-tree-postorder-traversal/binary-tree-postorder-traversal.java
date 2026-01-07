@@ -14,20 +14,25 @@
  * }
  */
 class Solution {
-
-    static void postorder(TreeNode root, List<Integer>ans){
-        if(root==null)return ;
-
-        postorder(root.left,ans);
-        postorder(root.right,ans);
-        ans.add(root.val);
-    }
-
     public List<Integer> postorderTraversal(TreeNode root) {
         
+        Stack<TreeNode>st=new Stack<>();
+        Stack<Integer>temp=new Stack<>();
         List<Integer>ans=new ArrayList<>();
 
-        postorder(root,ans);
+        if(root==null)return ans;
+        st.push(root);
+
+        while(st.size()>0){
+              TreeNode p=st.pop();
+              temp.push(p.val);
+              if(p.left!=null)st.push(p.left);
+              if(p.right!=null)st.push(p.right);  
+        }
+
+        while(temp.size()>0){
+            ans.add(temp.pop());
+        }
 
         return ans;
     }
