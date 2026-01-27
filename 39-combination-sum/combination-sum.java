@@ -7,17 +7,14 @@ class Solution {
            if(idx==arr.length || target<0)return ;
 
            if(target==0){
-              if(!st.contains(list)){
                 ans.add(new ArrayList(list));
-                st.add(list);
-              }
                 return ;
            }
 
            list.add(arr[idx]); 
-           fun(arr,ans,list,target-arr[idx],idx+1);
            fun(arr,ans,list,target-arr[idx],idx);
            list.remove(list.size()-1);
+
            fun(arr,ans,list,target,idx+1);
     }
 
