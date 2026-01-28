@@ -10,48 +10,51 @@
  * }
  */
 
-import java.math.BigInteger;
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
        
-        ListNode temp1=l1;
-        ListNode temp2=l2;
-        ListNode head=new ListNode(0);
-        ListNode newtemp=head;
-        
-        int carry=0;
-        int sum=0;
-        while(temp1!=null || temp2!=null ){
-             
-             if(temp1!=null){
-                 sum+=temp1.val;
-                 temp1=temp1.next;
-             }
-
-             if(temp2!=null){
-                 sum+=temp2.val;
-                 temp2=temp2.next;
-             }
-
-             sum+=carry;
-
-             int x=sum%10;
-             carry=sum/10;
-             sum=0;
-
-             ListNode a=new ListNode(x);
-             newtemp.next=a;
-             newtemp=newtemp.next;
+        ListNode dummy=new ListNode(0);
+        int rem=0;
+        ListNode curr=dummy;
+        while(l1!=null && l2!=null){
+               int x=l1.val+l2.val+rem;
+               rem=x/10;
+               x=x%10;
+               ListNode l=new ListNode(x);
+               curr.next=l;
+               curr=l;
+               l1=l1.next;
+               l2=l2.next;
         }
 
-        if(carry>0){
-             ListNode a=new ListNode(carry);
-             newtemp.next=a;
-             newtemp=newtemp.next;
+        while(l1!=null){
+             int x=rem+l1.val;
+             rem=x/10;
+             x=x%10;
+             ListNode l=new ListNode(x);
+             curr.next=l;
+             curr=l;
+             l1=l1.next;
         }
 
-        return head.next;
+        while(l2!=null){
+             int x=rem+l2.val;
+             rem=x/10;
+             x=x%10;
+             ListNode l=new ListNode(x);
+             curr.next=l;
+             curr=l;
+             l2=l2.next;
+        }
+
+        if(rem>0){
+            ListNode l=new ListNode(rem);
+            curr.next=l;
+        }
+
+
+        return  dummy.next;
        
     }
 }
