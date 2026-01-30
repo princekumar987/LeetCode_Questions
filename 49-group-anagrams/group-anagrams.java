@@ -7,13 +7,9 @@ class Solution {
 
             char []ch=strs[i].toCharArray();
             Arrays.sort(ch);
-            StringBuilder sb=new StringBuilder("");    
 
-            for(int j=0;j<ch.length;j++){
-                 sb.append(ch[j]);
-            }
-
-            String s=sb.toString();
+            String s=new String(ch);
+            
             if(mp.containsKey(s)){
                  List<String>l=mp.get(s);
                  l.add(strs[i]);
