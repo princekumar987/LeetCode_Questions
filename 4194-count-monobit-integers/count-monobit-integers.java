@@ -3,14 +3,18 @@ class Solution {
            
            int ans=0;
            for(int i=0;i<=n ;i++){
-                String s="";
+                StringBuilder sb=new StringBuilder("");
                 int x=i;
                 while(x>0){
-                    s=s+""+x%2;
+                    sb.append(x%2);
                     x/=2;
                 }
                 
-                if(s.replace("0","").length()==0 || s.replace("1","").length()==0)ans++;
+                int one=0;
+                for(int j=0;j<sb.length();j++){
+                     if(sb.charAt(j)=='1')one++;
+                }
+                if(one==sb.length() || one==0)ans++;
            }
 
            return ans;
