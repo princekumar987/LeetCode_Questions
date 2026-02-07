@@ -15,7 +15,18 @@ class Solution {
         
         int n=nums.length;
         int []dp=new int [n+1];
-        Arrays.fill(dp,-1);
-        return fun(nums,0,dp);
+        dp[0]=nums[0];
+        int pick=0;
+        int nonpick=0;
+        for(int i=1;i<n;i++){
+
+           
+            pick=nums[i];
+            if(i>=2)pick+=dp[i-2];
+            nonpick=dp[i-1];        
+            dp[i]=Math.max(pick,nonpick);      
+        }
+
+        return dp[n-1];
     }
 }
