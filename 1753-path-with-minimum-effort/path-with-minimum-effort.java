@@ -11,7 +11,7 @@ class Solution {
                }
            }
 
-           Queue<int[]>q=new LinkedList<>();
+           PriorityQueue<int[]>q=new PriorityQueue<>((a,b)->a[0]-b[0]);
            q.add(new int[]{0,0,0});
            dis[0][0]=0;
 
