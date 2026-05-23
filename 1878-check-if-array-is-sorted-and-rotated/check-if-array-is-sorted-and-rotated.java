@@ -1,25 +1,26 @@
 class Solution {
-    public boolean check(int[] arr) {
-    
-     int a=0; 
-     for(int i=0;i<arr.length-1;i++){
-         if(arr[i]>arr[i+1]){
-            a=i+1;
-            break;
-         }
-     }
+    public boolean check(int[] nums) {
 
-     for(int i=a;i<arr.length-1;i++){
-          if(arr[i]>arr[i+1])return false;
-     }
+            if(nums.length==1 || nums.length==2)return true;
+            
+            int breakPoints=-1;
 
-     if(a!=0 && arr[arr.length-1]>arr[0])return false;
+            for(int i=0;i<nums.length-1;i++){
+                  if(nums[i]>nums[i+1]){
+                    breakPoints=i+1;
+                    break;
+                  }
+            }
 
-     for(int i=0;i<a-1;i++){
-           if(arr[i]>arr[i+1])return false;
-     }
+            if(breakPoints==nums.length-1 && nums[breakPoints]<=nums[0])return true;
+            if(breakPoints==-1)return true;
 
-     return true;
+            for(int i=breakPoints;i<nums.length-1;i++){
+                 if(nums[i]>nums[i+1])return false;
+            }
+
+            if(nums[0]>=nums[nums.length-1])return true;
+            return false;
 
     }
 }
